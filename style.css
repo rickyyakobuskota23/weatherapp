@@ -4,15 +4,30 @@
     padding: 0;
 }
 body {
+    min-height: 100vh;
     background-color: rgba(0, 128, 0, 0.3);
-    display: flex;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer";
 }
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+nav {
+    grid-area: navbar;
+    padding: 1rem;
 }
-.nav-city-list {
-    width: 20%;
-    height: 100vh;
+aside {
+    grid-area: sidebar;
+    border-right: 0.1px black solid;
+    padding: 1rem;
+}
+main {
+    grid-area: main;
+    padding: 1rem;
+}
+footer {
+    grid-area: footer;
+    padding: 1rem;
 }
