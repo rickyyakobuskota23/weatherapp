@@ -10,18 +10,22 @@ body {
     grid-template-columns: 300px 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
-    "navbar navbar"
+    "sidebar navbar"
     "sidebar main"
     "sidebar footer";
 }
 nav {
     grid-area: navbar;
     padding: 1rem;
+    display: flex;
+    justify-content: end;
 }
 aside {
     grid-area: sidebar;
-    border-right: 0.1px black solid;
+    border-right: 0.1px grey solid;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 main {
     grid-area: main;
@@ -30,4 +34,54 @@ main {
 footer {
     grid-area: footer;
     padding: 1rem;
+}
+.fa-solid, .fa-bars {
+    padding-bottom: 1rem;
+    align-self: flex-end;
+}
+.nav-city {
+    display: flex;
+    justify-content: space-between;
+}
+.nav-title {
+    font-weight: 500;
+    color: white;
+    font-size: 25px;
+}
+.nav-time {
+    font-weight: 400;
+    color: rgb(30, 102, 197);
+    font-size: 20;
+    padding-top: 0.25rem;
+}
+.nav-weather {
+    font-weight: 300;
+    color: rgb(94, 150, 185);
+    padding-top: 0.75rem;
+}
+.nav-secondary-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-temperature {
+    font-weight: 300;
+    color: white;
+    font-size: 40px;
+    
+}
+.nav-temperature-container {
+    display: flex;
+    gap: 0.5rem;
+    color: white;
+}
+input {
+    border: none;
+    background-color: none;
+}
+.search-bar {
+    border: 1px black solid;
+    border-radius: 30%;
+
 }
