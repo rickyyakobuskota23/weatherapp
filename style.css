@@ -29,11 +29,22 @@ aside {
 }
 main {
     grid-area: main;
+    min-height: 100vh;
     padding: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "general-container"
+    "details-perhour details-perhour details-perhour details-windmap details-windmap"
+    "details-forecast details-uvindex details-sunset details-windmap details-windmap"
+    "details-forecast details-wind details-wakingcresent details-percipitation details-feelslike"
+    "details-forecast details-humidity details-visibility details-pressure details-average";
 }
 footer {
     grid-area: footer;
     padding: 1rem;
+    
 }
 .fa-solid, .fa-bars {
     padding-bottom: 1rem;
@@ -42,6 +53,9 @@ footer {
 .nav-city {
     display: flex;
     justify-content: space-between;
+    border-bottom: 0.5px grey solid;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 .nav-title {
     font-weight: 500;
@@ -84,4 +98,7 @@ input {
     border: 1px black solid;
     border-radius: 30%;
 
+}
+.details-perhour {
+    grid-area: details-perhour;
 }
