@@ -99,6 +99,45 @@ input {
     border-radius: 30%;
 
 }
+.general-container {
+    grid-area: general-container;
+}
 .details-perhour {
     grid-area: details-perhour;
+}
+.details-forecast {
+    grid-area: details-forecast;
+}
+.details-windmap {
+    grid-area: details-windmap;
+}
+.details-uvindex {
+    grid-area: details-uvindex;
+}
+.details-sunset {
+    grid-area: details-sunset;
+}
+.details-wind {
+    grid-area: details-wind;
+}
+.details-percipitation {
+    grid-area: details-percipitation;
+}
+.details-visibility {
+    grid-area: details-visibility;
+}
+.details-humidity {
+    grid-area: details-humidity;
+}
+.details-feelslike {
+    grid-area: details-feelslike;
+}
+.details-wakingcresent {
+    grid-area: details-wakingcresent;
+}
+.details-pressure {
+    grid-area: details-pressure;
+}
+.details-average {
+    grid-area: details-average;
 }
