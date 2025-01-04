@@ -2,13 +2,19 @@
     font-family: Roboto, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body {
-    min-height: 100vh;
-    background-color: rgba(0, 128, 0, 0.3);
+    height: 100vh;
+    /*background-color: rgba(0, 128, 0, 0.3);*/
+    background: url(https://images.unsplash.com/photo-1517758478390-c89333af4642?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
     "sidebar navbar"
     "sidebar main"
@@ -30,21 +36,23 @@ aside {
 main {
     grid-area: main;
     min-height: 100vh;
+    max-width: 100%;
     padding: 1rem;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-    "general-container"
+    "general-container general-container general-container general-container general-container"
     "details-perhour details-perhour details-perhour details-windmap details-windmap"
     "details-forecast details-uvindex details-sunset details-windmap details-windmap"
     "details-forecast details-wind details-wakingcresent details-percipitation details-feelslike"
     "details-forecast details-humidity details-visibility details-pressure details-average";
+    gap: 1rem;
 }
 footer {
     grid-area: footer;
     padding: 1rem;
-    
+    justify-self: center;
 }
 .fa-solid, .fa-bars {
     padding-bottom: 1rem;
@@ -101,43 +109,148 @@ input {
 }
 .general-container {
     grid-area: general-container;
+    background-color: none;
+    border: none;
+    border-radius: 30px;
+    padding: 1rem;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.hl-temperature-container {
+    padding-top: 0.25rem;
+    display: flex;
+    gap: 0.5rem;
 }
 .details-perhour {
     grid-area: details-perhour;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
+
 }
 .details-forecast {
     grid-area: details-forecast;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-windmap {
     grid-area: details-windmap;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-uvindex {
     grid-area: details-uvindex;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-sunset {
     grid-area: details-sunset;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-wind {
     grid-area: details-wind;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-percipitation {
     grid-area: details-percipitation;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-visibility {
     grid-area: details-visibility;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-humidity {
     grid-area: details-humidity;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-feelslike {
     grid-area: details-feelslike;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-wakingcresent {
     grid-area: details-wakingcresent;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-pressure {
     grid-area: details-pressure;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
 .details-average {
     grid-area: details-average;
+    background-color: rgba(255, 255, 255, 0.029);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
