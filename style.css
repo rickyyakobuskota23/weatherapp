@@ -38,7 +38,7 @@ main {
     min-height: 100vh;
     max-width: 100%;
     padding: 1rem;
-    display: grid;
+    display: inline-grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
@@ -131,7 +131,11 @@ input {
     border-left: 1px solid rgba(255, 255, 255, 0.315);
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
     border-radius: 20px;
-    padding: 1rem;
+    padding: 0.25rem 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
 
 }
 .details-forecast {
