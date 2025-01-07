@@ -201,16 +201,6 @@ input {
     border-radius: 20px;
     padding: 1rem;
 }
-.details-wakingcresent {
-    grid-area: details-wakingcresent;
-    background-color: rgba(12, 40, 122, 0.184);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255, 255, 255, 0.408);
-    border-left: 1px solid rgba(255, 255, 255, 0.315);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
-    border-radius: 20px;
-    padding: 1rem;
-}
 .details-pressure {
     grid-area: details-pressure;
     background-color: rgba(12, 40, 122, 0.184);
@@ -233,9 +223,7 @@ input {
 }
 
 /* General Elements */
-.uvindex-value-container,
-.sunset-value-container,
-.wind-value-container {
+.content-container {
     color: white;
 }
 .uvindex-value,
@@ -349,4 +337,19 @@ input {
     flex-direction: column;
     gap: 0.5rem;
     justify-content: space-between;
+}
+.wind-value-container {
+    align-self: center;
+}
+
+/* Daylight Duration */
+.details-daylightduration {
+    grid-area: details-wakingcresent;
+    background-color: rgba(12, 40, 122, 0.184);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 1rem;
 }
