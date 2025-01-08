@@ -53,6 +53,7 @@ footer {
     grid-area: footer;
     padding: 1rem;
     justify-self: center;
+    color: white;
 }
 .fa-solid, .fa-bars {
     padding-bottom: 1rem;
