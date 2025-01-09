@@ -335,3 +335,50 @@ const uvIndexInfo = {
     notes: "Avoid sun, full protection",
   },
 };
+
+let precipitationGuide = {
+  0: {
+    description: "No Precipitation",
+    notes: "No action needed",
+  },
+  1: {
+    description: "Light Rain",
+    notes: "Carry an umbrella",
+  },
+  2: {
+    description: "Moderate Rain",
+    notes: "Use a waterproof jacket",
+  },
+  3: {
+    description: "Heavy Rain",
+    notes: "Avoid outdoor activities",
+  },
+  4: {
+    description: "Light Snow",
+    notes: "Wear warm clothing",
+  },
+  5: {
+    description: "Moderate Snow",
+    notes: "Drive carefully",
+  },
+  6: {
+    description: "Heavy Snow",
+    notes: "Stay indoors if possible",
+  },
+  7: {
+    description: "Sleet",
+    notes: "Watch for slippery surfaces",
+  },
+  8: {
+    description: "Hail",
+    notes: "Seek shelter immediately",
+  },
+  9: {
+    description: "Thunderstorm",
+    notes: "Avoid open areas",
+  },
+  10: {
+    description: "Drizzle",
+    notes: "Carry a light raincoat",
+  },
+};

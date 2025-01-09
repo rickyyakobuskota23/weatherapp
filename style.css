@@ -286,6 +286,7 @@ input {
 }
 .wind-value-container {
     align-self: center;
+    text-align: center;
 }
 
 /* Daylight Duration */
