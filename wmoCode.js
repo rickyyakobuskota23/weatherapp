@@ -280,3 +280,58 @@ let code = {
     },
   },
 };
+
+const uvIndexInfo = {
+  0: {
+    description: "Low",
+    notes: "No protection needed",
+  },
+  1: {
+    description: "Low",
+    notes: "No protection needed",
+  },
+  2: {
+    description: "Low",
+    notes: "No protection needed",
+  },
+  3: {
+    description: "Moderate",
+    notes: "Use sunscreen",
+  },
+  4: {
+    description: "Moderate",
+    notes: "Use sunscreen",
+  },
+  5: {
+    description: "Moderate",
+    notes: "Use sunscreen",
+  },
+  6: {
+    description: "High",
+    notes: "Wear hat and sunglasses",
+  },
+  7: {
+    description: "High",
+    notes: "Wear hat and sunglasses",
+  },
+  8: {
+    description: "Very High",
+    notes: "Seek shade midday",
+  },
+  9: {
+    description: "Very High",
+    notes: "Seek shade midday",
+  },
+  10: {
+    description: "Very High",
+    notes: "Seek shade midday",
+  },
+  11: {
+    description: "Extreme",
+    notes: "Avoid sun, full protection",
+  },
+  12: {
+    description: "Extreme",
+    notes: "Avoid sun, full protection",
+  },
+};

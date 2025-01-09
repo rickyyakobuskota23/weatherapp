@@ -3,20 +3,69 @@ async function getWeather() {
     const response = await fetch(url);
     const data = await response.json();
 
+    console.log(data);
+
     // Change weather info
 
     // UV Index
     const UVIndex = document.querySelector('.uvindex-value');
     const UVIndexDesc = document.querySelector('.uvindex-desc');
     const UVIndexNotes = document.querySelector(".uvindex-notes");
+    const UVIndexDot = document.querySelector(".uvindex-dot");
+    const UVIndexBar = document.querySelector(".uvindex");
+
+    let uvIndex = Math.round(data.daily.uv_index_max[1]);
+
+    UVIndex.innerHTML = uvIndex; // buat supaya defaultnya today
+    UVIndexDesc.innerHTML = uvIndexInfo[uvIndex].description;
+    UVIndexNotes.innerHTML = uvIndexInfo[uvIndex].notes;
+
+    function moveUVIndexDot(uvIndex) {
+        const maxUvIndex = 11;
+        const percentage = (uvIndex / maxUvIndex) * 100;
+        UVIndexDot.style.left = `${percentage}%`;
+    }
+    moveUVIndexDot(uvIndex);
 
     // Sunset
     const SunsetTime = document.querySelector(".sunset-time");
     const SunsetTimeRemaining = document.querySelector(".sunset-time-remaining");
     const SunriseTimeNotes = document.querySelector(".sunrise-time-notes");
 
-    // Details Wind
+    // Wind
     const WindSpeed = document.querySelector(".wind-speed");
+    const WindNotes = document.querySelector(".wind-notes");
+
+    // Percipitation
+    const PercipitationValue = document.querySelector(".percipitation-value");
+    const PercipitationDesc = document.querySelector(".percipitation-desc");
+    const PercipitationNotes = document.querySelector(".percipitation-notes");
+
+    // Visibility
+    const VisibilityValue = document.querySelector(".visibility");
+    const VisibilityNotes = document.querySelector(".visibility-notes");
+
+    // Humidity
+    const HumidityValue = document.querySelector(".humidity");
+    const HumidityNotes = document.querySelector(".humidity-notes");
+
+    // Feels Like
+    const FeelslikeValue = document.querySelector(".feels_like");
+    const FeelslikeNotes = document.querySelector(".feels_like-notes");
+
+    // Daylight Duration
+    const DaylightDuration = document.querySelector(".daylight-duration");
+    const DaylightNotes = document.querySelector(".daylight-notes");
+
+    // Pressure
+    const PressureValue = document.querySelector(".pressure");
+    const PressureNotes = document.querySelector(".pressure-notes");
+
+    // Average
+    const AverageValue = document.querySelector(".average-value");
+    const AverageDesc = document.querySelector(".average-desc");
+    const AverageNotes1 = document.querySelector(".today-averages-notes-value1");
+    const AverageNotes2 = document.querySelector(".today-averages-notes-value2");
 }
 
 getWeather();

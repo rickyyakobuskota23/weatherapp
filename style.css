@@ -223,9 +223,10 @@ input {
     appearance: none;
     width: 100%;
     height: 10px;
+    position: relative;
 }
 .uvindex::-webkit-progress-bar {
-    background: linear-gradient(to right, green, yellow, orange, red);
+    background: linear-gradient(to right, green, yellow, orange, red, purple);
     border-radius: 10px;
 }
 .uvindex::-webkit-progress-value {
@@ -233,7 +234,7 @@ input {
     border-radius: 10px;
 }
 .uvindex::-moz-progress-bar {
-    background: linear-gradient(to right, green, yellow, orange, red);
+    background: linear-gradient(to right, green, yellow, orange, red, purple);
     border-radius: 10px;
 }
 .uvindex-dot {
@@ -244,6 +245,7 @@ input {
     background-color: white;
     border-radius: 50%;
     transform: translateX(-50%);
+    left: 0;
 }
 
 /* Sunset */
@@ -417,7 +419,12 @@ input {
     font-size: 12px;
     font-weight: 300;
 }
-.today-averages-notes-value {
+.today-averages-notes-value1 {
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+}
+.today-averages-notes-value2 {
     color: white;
     font-size: 12px;
     font-weight: 300;
