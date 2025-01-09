@@ -3,7 +3,20 @@ async function getWeather() {
     const response = await fetch(url);
     const data = await response.json();
 
-    
+    // Change weather info
+
+    // UV Index
+    const UVIndex = document.querySelector('.uvindex-value');
+    const UVIndexDesc = document.querySelector('.uvindex-desc');
+    const UVIndexNotes = document.querySelector(".uvindex-notes");
+
+    // Sunset
+    const SunsetTime = document.querySelector(".sunset-time");
+    const SunsetTimeRemaining = document.querySelector(".sunset-time-remaining");
+    const SunriseTimeNotes = document.querySelector(".sunrise-time-notes");
+
+    // Details Wind
+    const WindSpeed = document.querySelector(".wind-speed");
 }
 
 getWeather();
