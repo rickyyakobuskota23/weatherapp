@@ -13,12 +13,12 @@ body {
     background-attachment: fixed;
     background-position: center;
     display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
-    "sidebar navbar"
-    "sidebar main"
-    "sidebar footer";
+    "navbar"
+    "main"
+    "footer";
 }
 nav {
     grid-area: navbar;
@@ -53,6 +53,7 @@ footer {
     grid-area: footer;
     padding: 1rem;
     justify-self: center;
+    align-self: end;
     color: white;
 }
 .fa-solid, .fa-bars {
@@ -99,14 +100,31 @@ footer {
     gap: 0.5rem;
     color: white;
 }
-input {
-    border: none;
-    background-color: none;
-}
-.search-bar {
-    border: 1px black solid;
-    border-radius: 30%;
 
+.search-bar input {
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem;
+    flex-grow: 1;
+    margin-right: 0.5rem;
+    background-color: #fff;
+}
+
+.search-bar button {
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    background-color: rgba(12, 40, 122, 0.184);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.408);
+    border-left: 1px solid rgba(255, 255, 255, 0.315);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.09);
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: rgba(12, 40, 122, 0.3);
 }
 
 /* Containers */
@@ -302,10 +320,11 @@ input {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    justify-content: space-between;
+    justify-content: center;
 }
 .daylightduration-container {
     align-self: center;
+    text-align: center;
 }
 
 /* Humidity */
@@ -369,7 +388,7 @@ input {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    justify-content: space-between;
+    justify-content: center;
 }
 .pressure-value-container {
     align-self: center;
@@ -447,4 +466,169 @@ input {
     height: 100%;
     border: none;
     border-radius: 20px;
+}
+
+/* Forecast */
+.details-perhour {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+.forecast-item {
+    padding: 0.5rem;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.forecast-condition {
+    font-size: 10px;
+}
+.forecast-day {
+    font-size: 15px;
+}
+
+/* 7 Day Forecast*/ 
+.details-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "navbar"
+            "main"
+            "footer";
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "general-container"
+            "details-perhour"
+            "details-forecast"
+            "details-uvindex"
+            "details-sunset"
+            "details-wind"
+            "details-wakingcresent"
+            "details-humidity"
+            "details-visibility"
+            "details-percipitation"
+            "details-pressure"
+            "details-feelslike"
+            "details-average"
+            "details-locationmap";
+        gap: 1rem;
+    }
+
+    .nav-title {
+        font-size: 20px;
+    }
+
+    .nav-time {
+        font-size: 18px;
+    }
+
+    .nav-temperature {
+        font-size: 30px;
+    }
+
+    .uvindex-value,
+    .sunset-time,
+    .wind-speed,
+    .daylight-duration,
+    .humidity,
+    .visibility,
+    .percipitation-value,
+    .pressure,
+    .feels_like,
+    .averages-value {
+        font-size: 30px;
+    }
+}
+
+/* For mobile devices (width 480px and below) */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-city {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main {
+        padding: 0.5rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "general-container"
+            "details-perhour"
+            "details-forecast"
+            "details-uvindex"
+            "details-sunset"
+            "details-wind"
+            "details-wakingcresent"
+            "details-humidity"
+            "details-visibility"
+            "details-percipitation"
+            "details-pressure"
+            "details-feelslike"
+            "details-average"
+            "details-locationmap";
+        gap: 0.5rem;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+
+    .nav-title {
+        font-size: 18px;
+    }
+
+    .nav-time {
+        font-size: 16px;
+    }
+
+    .nav-temperature {
+        font-size: 25px;
+    }
+
+    .uvindex-value,
+    .sunset-time,
+    .wind-speed,
+    .daylight-duration,
+    .humidity,
+    .visibility,
+    .percipitation-value,
+    .pressure,
+    .feels_like,
+    .averages-value {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "navbar";
+    }
+
+    .forecast-item:nth-of-type(n+4) {
+        display: none;
+    }
 }
