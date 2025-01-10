@@ -76,9 +76,52 @@ async function getWeather() {
     const VisibilityValue = document.querySelector(".visibility");
     const VisibilityNotes = document.querySelector(".visibility-notes");
 
+    visibilityCurrent = Math.round(data.hourly.visibility[0] / 1000);
+
+    VisibilityValue.innerHTML = `${visibilityCurrent} KM`;
+
+    function VisibilityNote() {
+        let visiblenotes = '';
+        let visibledesc = '';
+        if (visibilityCurrent >= 10) {
+            visiblenotes = visibilityGuide[0].description;
+            visibledesc = visibilityGuide[0].notes;
+        } else if (visibilityCurrent >= 8) {
+            visiblenotes = visibilityGuide[1].description;
+            visibledesc = visibilityGuide[1].notes;
+        } else if (visibilityCurrent >= 5) {
+            visiblenotes = visibilityGuide[2].description;
+            visibledesc = visibilityGuide[2].notes;
+        } else if (visibilityCurrent >= 2) {
+            visiblenotes = visibilityGuide[3].description;
+            visibledesc = visibilityGuide[3].notes;
+        } else if (visibilityCurrent === 1) {
+            visiblenotes = visibilityGuide[4].description;
+            visibledesc = visibilityGuide[4].notes;
+        } else if (visibilityCurrent >= 0.5) {
+            visiblenotes = visibilityGuide[5].description;
+            visibledesc = visibilityGuide[5].notes;
+        } else if (visibilityCurrent >= 0.2) {
+            visiblenotes = visibilityGuide[6].description;
+            visibledesc = visibilityGuide[6].notes;
+        } else if (visibilityCurrent === 0){
+            visiblenotes = visibilityGuide[7].description;
+            visibledesc = visibilityGuide[7].notes;
+        } else {
+            console.error(Error);
+        }
+
+        return VisibilityNote();
+    }
+
+    VisibilityNotes.innerHTML = VisibilityNote;
+
     // Humidity
     const HumidityValue = document.querySelector(".humidity");
     const HumidityNotes = document.querySelector(".humidity-notes");
+
+    HumidityValue.innerHTML = `${data.hourly.relative_humidity_2m[0]}${data.hourly_units.relative_humidity_2m}`;
+    HumidityNotes.innerHTML = `The dew point is ${Math.round(data.hourly.dew_point_2m[0])}${data.hourly_units.dew_point_2m} right now.`;
 
     // Feels Like
     const FeelslikeValue = document.querySelector(".feels_like");
