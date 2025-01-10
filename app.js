@@ -1,11 +1,31 @@
-async function getWeather() {
-    const url = "https://api.open-meteo.com/v1/forecast?latitude=-37.814&longitude=144.9633&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,weather_code,visibility,relative_humidity_900hPa&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,precipitation_sum&timezone=Australia%2FSydney";
+async function getWeather(cityName) {
+    async function getCoordinates(cityName) {
+        const geocodeurl = `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}&count=10&language=en&format=json`;
+        const responsegeo = await fetch(geocodeurl);
+        const datageo = await responsegeo.json();
+        const { latitude, longitude } = datageo.results[0];
+        return { latitude, longitude };
+    }
+    const { latitude, longitude } = await getCoordinates(cityName);
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,is_day,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,weather_code,visibility,uv_index,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,precipitation_sum&timezone=Australia%2FSydney`;
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data);
-
     // Change weather info
+
+    //
+    const CityName = document.querySelector(".card-subtitle");
+    const CurrentTemperature = document.querySelector(".card-title");
+    const CurrentCondition = document.querySelector(".card-weather");
+    const HighTemperature = document.querySelector(".highest-temperature");
+    const LowTemperature = document.querySelector(".lowest-temperature");
+    const currentCode = data.current.weather_code;
+    const currentDay = data.current.is_day === 0 ? "night" : "day";
+
+    CityName.innerHTML = cityName;
+
+    console.log(cityName);
+
 
     // UV Index
     const UVIndex = document.querySelector('.uvindex-value');
@@ -75,6 +95,7 @@ async function getWeather() {
     // Visibility
     const VisibilityValue = document.querySelector(".visibility");
     const VisibilityNotes = document.querySelector(".visibility-notes");
+    const VisibilityDesc = document.querySelector(".visibility-desc");
 
     visibilityCurrent = Math.round(data.hourly.visibility[0] / 1000);
 
@@ -84,37 +105,38 @@ async function getWeather() {
         let visiblenotes = '';
         let visibledesc = '';
         if (visibilityCurrent >= 10) {
-            visiblenotes = visibilityGuide[0].description;
-            visibledesc = visibilityGuide[0].notes;
+            visiblenotes = visibilityGuide[10].notes;
+            visibledesc = visibilityGuide[10].description;
         } else if (visibilityCurrent >= 8) {
-            visiblenotes = visibilityGuide[1].description;
-            visibledesc = visibilityGuide[1].notes;
+            visiblenotes = visibilityGuide[8].notes;
+            visibledesc = visibilityGuide[8].description;
         } else if (visibilityCurrent >= 5) {
-            visiblenotes = visibilityGuide[2].description;
-            visibledesc = visibilityGuide[2].notes;
+            visiblenotes = visibilityGuide[5].notes;
+            visibledesc = visibilityGuide[5].description;
         } else if (visibilityCurrent >= 2) {
-            visiblenotes = visibilityGuide[3].description;
-            visibledesc = visibilityGuide[3].notes;
+            visiblenotes = visibilityGuide[2].notes;
+            visibledesc = visibilityGuide[2].description;
         } else if (visibilityCurrent === 1) {
-            visiblenotes = visibilityGuide[4].description;
-            visibledesc = visibilityGuide[4].notes;
+            visiblenotes = visibilityGuide[1].notes;
+            visibledesc = visibilityGuide[1].description;
         } else if (visibilityCurrent >= 0.5) {
-            visiblenotes = visibilityGuide[5].description;
-            visibledesc = visibilityGuide[5].notes;
+            visiblenotes = visibilityGuide[0.5].notes;
+            visibledesc = visibilityGuide[0.5].description;
         } else if (visibilityCurrent >= 0.2) {
-            visiblenotes = visibilityGuide[6].description;
-            visibledesc = visibilityGuide[6].notes;
+            visiblenotes = visibilityGuide[0.2].notes;
+            visibledesc = visibilityGuide[0.2].description;
         } else if (visibilityCurrent === 0){
-            visiblenotes = visibilityGuide[7].description;
-            visibledesc = visibilityGuide[7].notes;
+            visiblenotes = visibilityGuide[0].notes;
+            visibledesc = visibilityGuide[0].description;
         } else {
             console.error(Error);
         }
 
-        return VisibilityNote();
+        VisibilityNotes.innerHTML = visiblenotes;
+        VisibilityDesc.innerHTML = visibledesc;
     }
 
-    VisibilityNotes.innerHTML = VisibilityNote;
+    VisibilityNote();
 
     // Humidity
     const HumidityValue = document.querySelector(".humidity");
@@ -126,6 +148,8 @@ async function getWeather() {
     // Feels Like
     const FeelslikeValue = document.querySelector(".feels_like");
     const FeelslikeNotes = document.querySelector(".feels_like-notes");
+
+    FeelslikeValue.innerHTML = `${Math.round(data.current.apparent_temperature)}${data.current_units.apparent_temperature}`;
 
     // Daylight Duration
     const DaylightDuration = document.querySelector(".daylight-duration");
@@ -142,4 +166,9 @@ async function getWeather() {
     const AverageNotes2 = document.querySelector(".today-averages-notes-value2");
 }
 
-getWeather();
+document.getElementById('search-button').addEventListener('click', async () => {
+    const cityName = document.getElementById('query').value;
+    getWeather(cityName);
+})
+
+getWeather("Sidney");

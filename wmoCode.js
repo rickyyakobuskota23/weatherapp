@@ -386,34 +386,34 @@ let precipitationGuide = {
 let visibilityGuide = {
   10: {
     description: "Excellent",
-    notes: "No restrictions",
+    notes: "No restrictions.",
   },
   8: {
     description: "Good",
-    notes: "Safe for most activities",
+    notes: "Safe for most activities.",
   },
   5: {
     description: "Moderate",
-    notes: "Be cautious while driving",
+    notes: "Be cautious while driving.",
   },
   2: {
     description: "Poor",
-    notes: "Use headlights while driving",
+    notes: "Use headlights while driving.",
   },
   1: {
     description: "Very Poor",
-    notes: "Avoid unnecessary travel",
+    notes: "Avoid unnecessary travel.",
   },
   0.5: {
     description: "Foggy",
-    notes: "Drive slowly, use fog lights",
+    notes: "Drive slowly, use fog lights.",
   },
   0.2: {
     description: "Hazy",
-    notes: "Limit outdoor activities",
+    notes: "Limit outdoor activities.",
   },
   0: {
     description: "No Visibility",
-    notes: "Stay indoors if possible",
+    notes: "Stay indoors if possible.",
   },
 };
